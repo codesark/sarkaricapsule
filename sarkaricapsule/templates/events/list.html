@@ -1,0 +1,75 @@
+{% extends 'events/base.html' %}
+{% load static %}
+
+{% block pagename %} Sarkari Capsule : 
+    {% if pagename == "Importantdate" %} Important Dates
+    {% elif pagename == "Importantupdate" %} Important Updates
+    {% elif pagename == "Importantlink" %} Important Links
+    {% elif pagename == "Result" %} Latest Results
+    {% else %} {{ pagename }}
+    {%endif%}
+{% endblock %}
+
+
+
+<!-- Block Head -->
+
+
+{% block extrahead %}
+<link rel="canonical" href="{{request.scheme}}://{{request.META.HTTP_HOST}}{% url 'events:list' listtype=list_type pageno=events.number %}">
+<meta name="keywords" content="sarkari, sarkariresult, sarkarijob sarkarinaukari, job, admission, scholarship, admitcard, result, syllabus" />
+<meta name="description" content="" />
+<meta property="og:url" content="{{request.scheme}}://{{request.META.HTTP_HOST}}{% url 'events:list' listtype=list_type pageno=events.number %}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ title|upper }} | SarkariCapsule | Sarkari Job, Admission, Scholarship, Admitcard, Result, Syllabus">
+<meta property="og:description" content="Complete {{ title|upper }} @ Sakaricapsule | Complete information portal for sarkari jobs and admissions">
+<meta property="og:image" content="{% static 'staticfiles/images/logo.png' %}">
+<meta property="og:site_name" content="SarkariCapsule">
+{% endblock extrahead %}
+
+
+<!-- Block Schema -->
+
+{% block extraschema %}
+
+{% endblock extraschema %}
+
+
+{% block content %}
+<div class="center-box">
+    <h2 class="box-head"> {{ title|upper }}</h2>
+    <div class="box-content">
+        {% if events %}
+            <div class="list-container">
+                {% for event in events %}
+                    <a href="{% url 'events:detail' listtype=list_type pk=event.pk slug=event.slug %}">{{event.title}} 
+                        {% if pagename == "Importantdate" %} Important Dates
+                        {% elif pagename == "Importantupdate" %} Important Updates
+                        {% elif pagename == "Importantlink" %} Important Links
+                        {% elif pagename == "Result" %} Latest Results
+                        {% else %} {{ pagename }}
+                        {%endif%}
+                    </a>
+                {% endfor %}                
+            </div>
+            <div class="pagination">
+                <span class="step-links">
+                    {% if events.has_previous %}
+                    <a href="{% url 'events:list' listtype=list_type pageno=1 %}">&laquo; First</a>
+                    <a href="{% url 'events:list' listtype=list_type pageno=events.previous_page_number %}">Previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ events.number }} of {{ events.paginator.num_pages }}.
+                    </span>
+
+                    {% if events.has_next %}
+                    <a href="{% url 'events:list' listtype=list_type pageno=events.next_page_number %}">Next</a>
+                    <a href="{% url 'events:list' listtype=list_type pageno=events.paginator.num_pages %}">Last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

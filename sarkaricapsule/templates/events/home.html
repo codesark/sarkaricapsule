@@ -1,0 +1,661 @@
+{% extends 'events/base.html' %}
+{% load static %}
+
+
+
+<!-- Block Head -->
+
+
+{% block extrahead %}
+
+<meta name="keywords" content="sarkari result,sarkari results,sarkari result com, sarkari result 2019, sarkariresult.com, sarkariresults.com, sarkari results 2019, admit card 2109, latest govt jobs, sarkari naukri 2019, sarkari result 2018,
+    sarkari result 2019,
+    sarkari result 2018_2019,
+    sarkari result notification,
+    sarkari result in hindi,
+    sarkari result 10th 2019,
+    sarkari result bihar,
+    sarkari result 10+2 latest job,
+    sarkari result com,
+    sarkari result. com,
+    sarkari result 2019,  
+    sarkari result 2018_2019,    
+    sarkari result notification,    
+    sarkari result in hindi,    
+    sarkari result 10th 2019,    
+    sarkari result bihar,    
+    sarkari result 10+2 latest job,    
+    sarkari result com, sarkari result. com,    
+    sarkari result hindi,
+    sarkari result info,
+    sarkari naukri result,
+    sarkari result 10th 2019,
+    sarkari result exam,
+    sarkari result bihar,
+    sarkari result in bihar
+    sarkari result group d,
+    sarkari result up board,
+    sarkari result 12th 2019,
+    sarkari result up,
+    sarkari result ccc,
+    sarkari result ssc gd,
+    sarkari result job,
+    sarkari result iti,
+    sarkari result latest,
+    sarkari result up police, sarkari result bihar board,
+    sarkari result online,
+    sarkari result 2019 up board,
+    sarkari result high school 2019,
+    sarkari result airforce,
+    sarkari result rajasthan,
+    sarkari result 2019 12th,
+   ">
+
+   <meta name="news_keywords" content="sarkari result,sarkari results,sarkari result com, sarkari result 2019, sarkariresult.com, sarkariresults.com, sarkari results 2019, admit card 2109, latest govt jobs, sarkari naukri 2019, sarkari result 2018,
+    sarkari result 2019,
+    sarkari result notification,
+    sarkari result in hindi,
+    sarkari result 10th 2019,
+    sarkari result bihar,
+    sarkari result 10+2 latest job,
+    sarkari result com,
+    sarkari result. com,
+    sarkari result 2019,  
+    sarkari result 2018_2019,    
+    sarkari result notification,    
+    sarkari result in hindi,    
+    sarkari result 10th 2019,    
+    sarkari result bihar,    
+    sarkari result 10+2 latest job,    
+    sarkari result com, sarkari result. com,    
+    sarkari result hindi,
+    sarkari result info,
+    sarkari naukri result,
+    sarkari result 10th 2019,
+    sarkari result exam,
+    sarkari result bihar,
+    sarkari result in bihar
+    sarkari result group d,
+    sarkari result up board,
+    sarkari result 12th 2019,
+    sarkari result up,
+    sarkari result ccc,
+    sarkari result ssc gd,
+    sarkari result job,
+    sarkari result iti,
+    sarkari result latest,
+    sarkari result up police, sarkari result bihar board,
+    sarkari result online,
+    sarkari result 2019 up board,
+    sarkari result high school 2019,
+    sarkari result airforce,
+    sarkari result rajasthan,
+    sarkari result 2019 12th,
+   ">
+<meta name="description" content="{{ meta_desc}}" />
+
+<link rel="canonical" href="{{request.scheme}}://{{request.META.HTTP_HOST}}{% url 'events:home' %}" />
+
+<!-- Open Graph -->
+<meta property="og:image"
+    content="{{request.scheme}}://{{request.META.HTTP_HOST}}{% static 'staticfiles/images/logo.png' %}" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="400" />
+<meta property="og:image:height" content="400" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title"
+    content="Sarkari Result | Get Latest Govt Jobs, Result, Admission, Admit Card Alerts | SarkariResults | Sarkari Capsule" />
+<meta property="og:description" content="{{ meta_desc }}" />
+<meta property="og:url" content="{{request.scheme}}://{{request.META.HTTP_HOST}}" />
+<meta property="og:site_name" content="Sarkari Capsule" />
+<meta itemprop="mainEntityOfPage" content="https://sarkaricapsule.com"  />
+    <meta itemprop="url"  content="https://sarkaricapsule.com"  />
+    <meta itemprop="description"    content="{{ meta_desc}}" />
+   
+    <meta itemprop="keywords" content="Sarkari Capsule, Sarkari Result, Sarkari Result 2019, Sarkari Exams, Sarkari Jobs, Sarkari Naukari">
+<meta property="article:publisher" content="https://www.facebook.com/sarkaricapsule" />
+<meta property="fb:admins" content="www.facebook.com/sarkaricapsule" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="{{ meta_desc }}" />
+<meta name="twitter:title" content="{{ page_title }}" />
+<meta name="twitter:site" content="@SarkariCapsule" />
+<meta name="twitter:domain" content="SarkariCapsule" />
+<meta name="twitter:creator" content="@SarkariCapsule" />
+
+{% endblock extrahead %}
+
+
+<!-- Block SCHEMA -->
+
+
+{% block extraschema %}
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://www.sarkaricapsule.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://query.sarkaricapsule.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+</script>
+
+<script type="application/ld+json">{
+    "@context": "http:\/\/schema.org",
+    "@type": "HowTo",
+    "headline": "How Can I get Government or Sarkari Jobs ?",
+    "name": "How Can I get Government or Sarkari Jobs ?",
+    "author": {
+        "@context": "http:\/\/schema.org",
+        "@type": "Organization",
+        "name": "Sarkari Capsule",
+        "url": "https:\/\/wwww.sarkaricapsule.com",
+        
+        },
+        "sameAs": [
+            "https:\/\/www.facebook.com\/sarkaricapsule\/",
+            "https:\/\/twitter.com\/sarkaricapsule",
+            "https:\/\/www.instagram.com\/sarkaricapsule\/",
+            "https:\/\/www.linkedin.com\/company\/sarkaricapsule\/",
+            "https:\/\/www.youtube.com\/user\/sarkaricapsule"
+        ]
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "bestRating": 100,
+        "ratingCount": 64,
+        "ratingValue": 83
+    },
+    "datePublished": "2019-11-04",
+    "dateModified": "2019-11-04",
+    "publisher": {
+        "@context": "http:\/\/schema.org",
+        "@type": "Organization",
+        "name": "sarkaricapsule",
+        "url": "https:\/\/www.sarkaricapsule.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": ""{% static "staticfiles/images/logo.png" %}" type="image/x-icon",
+            "width": 326,
+            "height": 60
+        },
+        "sameAs": [
+            "https:\/\/www.facebook.com\/sarkaricapsule\/",
+            "https:\/\/twitter.com\/sarkaricapsule",
+            "https:\/\/www.instagram.com\/sarkaricapsule\/",
+            "https:\/\/www.linkedin.com\/company\/sarkaricapsule\/",
+            "https:\/\/www.youtube.com\/user\/sarkaricapsule"
+        ]
+    },
+    
+    "step": [
+        {
+            "@type": "HowToSection",
+            "name": "Search Jobs",
+            "position": 1,
+            "itemListElement": [
+                {
+                    "@type": "HowToStep",
+                    "position": 1,
+                    "itemListElement": {
+                        "@type": "HowToDirection",
+                        "position": 1,
+                        "text": "Search for current Sarkari Job Vacancies on Sarkari Capsule."
+                    },
+                    "image": "{{request.scheme}}://{{request.META.HTTP_HOST}}{% static 'staticfiles/images/logo.png' %}",
+                    "url": "https:\/\/www.sarkaricapsule.com"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 2,
+                    "itemListElement": {
+                        "@type": "HowToDirection",
+                        "position": 1,
+                        "text": "Check the eligibility criteria on Sarkari Capsule for the respective sarkari Job  "
+                    },
+                    "image": "{{request.scheme}}://{{request.META.HTTP_HOST}}{% static 'staticfiles/images/logo.png' %}",
+                    "url": "https:\/\/www.sarkaricapsule.com"
+                },
+
+                {
+                    "@type": "HowToStep",
+                    "position": 2,
+                    "itemListElement": {
+                        "@type": "HowToDirection",
+                        "position": 1,
+                        "text": "Check the eligibility criteria on Sarkari Capsule for the respective sarkari Job  "
+                    },
+                    "image": "{{request.scheme}}://{{request.META.HTTP_HOST}}{% static 'staticfiles/images/logo.png' %}",
+                    "url": "https:\/\/www.sarkaricapsule.com"
+                },
+
+                {
+                    "@type": "HowToStep",
+                    "position": 2,
+                    "itemListElement": {
+                        "@type": "HowToDirection",
+                        "position": 1,
+                        "text": "If you are eligible for that sarkari job, then apply through the provided link on Sarkari Capsule "
+                    },
+                    "image": "{{request.scheme}}://{{request.META.HTTP_HOST}}{% static 'staticfiles/images/logo.png' %}",
+                    "url": "https:\/\/www.sarkaricapsule.com"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 2,
+                    "itemListElement": {
+                        "@type": "HowToDirection",
+                        "position": 1,
+                        "text": "Pay the registration fee required to successfully apply for that sarkari job."
+                    },
+                    "image": "{{request.scheme}}://{{request.META.HTTP_HOST}}{% static 'staticfiles/images/logo.png' %}",
+                    "url": "https:\/\/www.sarkaricapsule.com"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 2,
+                    "itemListElement": {
+                        "@type": "HowToDirection",
+                        "position": 1,
+                        "text": "To appear in the examination, Download the admit card by clicking the link on sarkari capsule for that particular sarkari job.."
+                    },
+                    "image": "{{request.scheme}}://{{request.META.HTTP_HOST}}{% static 'staticfiles/images/logo.png' %}",
+                    "url": "https:\/\/www.sarkaricapsule.com"
+                },
+
+                {
+                    "@type": "HowToStep",
+                    "position": 2,
+                    "itemListElement": {
+                        "@type": "HowToDirection",
+                        "position": 1,
+                        "text": "You can also get the updates of different Sarkari Jobs also on your Phone through whatspp and telegram."
+                    },
+                    "image": "{{request.scheme}}://{{request.META.HTTP_HOST}}{% static 'staticfiles/images/logo.png' %}",
+                    "url": "https:\/\/www.sarkaricapsule.com"
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 2,
+                    "itemListElement": {
+                        "@type": "HowToDirection",
+                        "position": 1,
+                        "text": "For admit card and result update please join our whatsapp and telegram group.."
+                    },
+                    "image": "{{request.scheme}}://{{request.META.HTTP_HOST}}{% static 'staticfiles/images/logo.png' %}",
+                    "url": "https:\/\/www.sarkaricapsule.com"
+                }
+                ]
+            }
+            ],
+            "description": "How to get sarkari or Government jobs ?"
+}</script>
+
+
+
+
+{% endblock extraschema %}
+
+
+
+<!--   Block CONTENT -->
+
+
+{% block content %}
+<div class="focused-grid">
+    <div class="foc-list">
+        <span class="foc-head">Latest Sarkari Jobs</span>
+        <div class="foc-body">
+            <div>
+                {% if combined_object_list.job %}
+                {% for i in combined_object_list.job %}
+                <a href="{% url 'events:detail' listtype='job' slug=i.slug pk=i.pk %}">
+                        {% if i.recently_added %}<span class="imp">NEW</span>{% endif %}
+                        {% if i.recently_updated %} <span class="new">UPDATED</span>{% endif %}    
+                        {{ i.title }} 
+                </a>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="foc-list">
+        <span class="foc-head">Latest Sarkari Results</span>
+        <div class="foc-body">
+            <div>
+                {% if combined_object_list.result %}
+                {% for i in combined_object_list.result %}
+                <a href="{% url 'events:detail' listtype='result' slug=i.slug pk=i.pk %}">
+                        {% if i.recently_added %}<span class="imp">NEW</span>{% endif %}
+                        {% if i.recently_updated %} <span class="new">UPDATED</span>{% endif %}
+                        {{ i.title }}
+                </a>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="content-grid">
+    <div class="grid-column column1">
+        {% if combined_object_list.job %}
+        <div class="grid-elem elem11">
+            <div class="grid-box">
+                <h3> Sarkari Jobs</h3>
+                <div>
+
+                    {% for i in combined_object_list.job %}
+                    <a href="{% url 'events:detail' listtype='job' slug=i.slug pk=i.pk %}">
+                            {% if i.recently_added %}
+                                <span class="imp">NEW</span>
+                            {% elif i.recently_updated %} 
+                                <span class="new">UPDATED</span>
+                            {% endif %}
+                            {{ i.title }}
+                        </a>
+                    {% endfor %}
+
+                    <div class="load-more"><a href="{% url 'events:list' listtype='job' %}">View More</a></div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% if combined_object_list.result %}
+        <div class="grid-elem elem31">
+            <div class="grid-box">
+                <h3> Sarkari Results</h3>
+                <div>
+                    {% for i in combined_object_list.result %}
+                        <a href="{% url 'events:detail' listtype='result' slug=i.slug pk=i.pk %}">
+                            {% if i.recently_added %}
+                                <span class="imp">NEW</span>
+                            {% elif i.recently_updated %} 
+                                <span class="new">UPDATED</span>
+                            {% endif %}
+                            {{ i.title }}
+                        </a>
+                    {% endfor %}
+                    <div class="load-more"><a href="{% url 'events:list' listtype='result' %}">View More</a></div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <div class="grid-column column2">
+        {% if combined_object_list.admitcard %}
+        <div class="grid-elem elem21">
+            <div class="grid-box">
+                <h3> Admit Cards</h3>
+                <div>
+                    {% for i in combined_object_list.admitcard %}
+                        <a href="{% url 'events:detail' listtype='admitcard' slug=i.slug pk=i.pk %}">
+                            {% if i.recently_added %}
+                                <span class="imp">NEW</span>
+                            {% elif i.recently_updated %} 
+                                <span class="new">UPDATED</span>
+                            {% endif %}
+                            {{ i.title }}
+                        </a>
+                    {% endfor %}
+                    <div class="load-more"><a href="{% url 'events:list' listtype='admitcard' %}">View More</a></div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% if combined_object_list.syllabus %}
+        <div class="grid-elem elem22">
+            <div class="grid-box">
+                <h3>Syllabus</h3>
+                <div>
+                    {% for i in combined_object_list.syllabus %}
+                        <a href="{% url 'events:detail' listtype='syllabus' slug=i.slug pk=i.pk %}">
+                            {% if i.recently_added %}
+                                <span class="imp">NEW</span>
+                            {% elif i.recently_updated %} 
+                                <span class="new">UPDATED</span>
+                            {% endif %}
+                            {{ i.title }}
+                        </a>
+                    {% endfor %}
+                    <div class="load-more"><a href="{% url 'events:list' listtype='syllabus' %}">View More</a></div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <div class="grid-column column3">
+            {% if combined_object_list.admission %}
+            <div class="grid-elem elem12">
+                <div class="grid-box">
+                    <h3>Latest Admissions</h3>
+                    <div>
+                        {% for i in combined_object_list.admission %}
+                            <a href="{% url 'events:detail' listtype='admission' slug=i.slug pk=i.pk %}">
+                                {% if i.recently_added %}
+                                    <span class="imp">NEW</span>
+                                {% elif i.recently_updated %} 
+                                    <span class="new">UPDATED</span>
+                                {% endif %}
+                                {{ i.title }}
+                            </a>
+                        {% endfor %}
+                        <div class="load-more"><a href="{% url 'events:list' listtype='admission' %}">View More</a></div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        {% if combined_object_list.answerkey %}
+        <div class="grid-elem elem32">
+            <div class="grid-box">
+                <h3>Answer Keys</h3>
+                <div>
+                    {% for i in combined_object_list.answerkey %}
+                        <a href="{% url 'events:detail' listtype='answerkey' slug=i.slug pk=i.pk %}">
+                            {% if i.recently_added %}
+                                <span class="imp">NEW</span>
+                            {% elif i.recently_updated %} 
+                                <span class="new">UPDATED</span>
+                            {% endif %}
+                            {{ i.title }}
+                        </a>
+                    {% endfor %}
+                    <div class="load-more"><a href="{% url 'events:list' listtype='answerkey' %}">View More</a></div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% if combined_object_list.scholarship %}
+        <div class="grid-elem elem13">
+            <div class="grid-box">
+                <h3>Scholarships</h3>
+                <div>
+                    {% for i in combined_object_list.scholarship %}
+                        <a href="{% url 'events:detail' listtype='scholarship' slug=i.slug pk=i.pk %}">
+                            {% if i.recently_added %}
+                                <span class="imp">NEW</span>
+                            {% elif i.recently_updated %} 
+                                <span class="new">UPDATED</span>
+                            {% endif %}
+                            {{ i.title }}
+                        </a>
+                    {% endfor %}
+                    <div class="load-more"><a href="{% url 'events:list' listtype='scholarship' %}">View More</a></div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    
+       
+
+<h1>
+    Popular Sarkari Jobs in India
+</h1>
+<p>
+ <h2>These are popular Sarkari Jobs </h2>
+ <ul style="text-align:left;">
+     <li>
+         Jobs in PSUs (NTPC, BHEL, GAIL)
+     </li>
+     <li>
+         Civil Services Jobs (IAS, IPS, IES, ) 
+     </li>
+     <li>
+         Scientist in DRDO, ISRO
+     </li>
+     <li>
+         Sarkari Jobs in Indian Railway 
+     </li>
+     <li>
+         Sarkari Jobs in Defence(Airforce, Navy, Army)
+     </li>
+     <li>
+         Sarkari Jobs in College and University (Lecturer, Professor)
+     </li>
+     <li>
+         Sarkari Jobs in Banks
+     </li>
+     <li>
+         Sarkari Jobs in Hospitals (AIIMS)
+     </li>
+ </ul>
+
+</p>
+
+<div itemscope itemtype="https://schema.org/FAQPage">
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h1 itemprop="name"> How can I get Sarkari Job? </h1>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+    <ol style="text-align:left;">
+   <li>
+    Search for current Sarkari Job Vacancies on Sarkari Capsule.
+   </li>
+   <li>Check the eligibility criteria on Sarkari Capsule for the respective sarkari Job   </li>
+    <li> If you are eligible for that sarkari job, then apply through the provided link on Sarkari Capsule
+    </li>
+    <li>Pay the registration fee required to successfully apply for that sarkari job.
+    </li> 
+    <li>To appear in the examination, Download the admit card by clicking the link on sarkari capsule for that particular sarkari job.
+    </li> 
+    <li> You can also get the updates of different Sarkari Jobs also on your Phone through whatspp and telegram.
+    </li> 
+    <li> For admit card and result update please join our whatsapp and telegram group.
+   </li>
+
+
+    </ol>   
+    
+    </div>
+    </div>
+  </div>
+
+   
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h1 itemprop="name"> Why Sarkari Jobs? </h1>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+     <p style="text-align:left;">
+            The best benefit of a sarkari jobs is lifelong pension after your retirement. This is the main reason why most people in India prefer sarkari jobs. Good salary,Job Security,Medical benefits,Fixed working hours,Availability of decent amount of off-days are several other advantages of sarkari jobs.The youth seeks work life balance now-a-days. Whether one graduates as an engineer,or doctor,does BCA,B.Sc,BMS,BBA,B.Com. etc.,there are options for sarkari job open to all stream job seekers.There are yet sarkari job options applied even after 12th qualification itself.Hence ,with so many benefits and opportunities ,every one wishes to acquire sarkari naukari and set your life for your whole lifetime.But getting one is a challenge in itself.That is where Sarkari Capsule plays a vital role to provide complete knowledge to the aspirants about each and every sarkari job,be it the important dates regarding the competitive exams or the necessary details about jobs as well as exams corresponding to them.
+
+     </p>
+    
+    </div>
+    </div>
+  </div>
+
+
+   
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h1 itemprop="name">  How can I get Sarkari job in bank? </h1>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+     <p style="text-align:left;">
+           
+            1. Firstly, decide the post for which you want to apply for <br>
+            2. Some of the sarkari jobs provided by Bank organizations, also take employees on contractual basis.<br>
+            3. Search the Sarkari Job Vacancies, their eligibility criteria of different bank organisations on Sarkari Capsule.<br>
+            4. If you are eligible for the intereseted sarkari job, then apply through the provided link on Sarkari Capsule. <br>
+            5. Pay the registration fee to successfully apply for that sarkari job using the methods mentioned. <br>
+            6. Download the admit card from the link on sarkari capsule for that particular sarkari job. <br>
+            7. You can also get the updates of different Sarkari Jobs also on your Phone through whatsapp and telegram. <br>
+            8. For further result update, join our whatsapp and telegram group. 
+     </p>
+    
+    </div>
+    </div>
+  </div>
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h1 itemprop="name">  How do you get a Sarkari job with no experience? </h1>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+     <p style="text-align:left;">
+           
+        <li> There are many Sarkari jobs taking fresher employees.
+     </li> <li> For such sarkari jobs you are eligible to apply to that sarkari organization.
+     </li> <li> You can check the eligibility criteria on Sarkari Capsule and apply.
+        </li> <li>Download the admit card by clicking the link on sarkari capsule for that particular sarkari job.
+        </li> <li> You can also get the updates of different Sarkari Jobs also on your Phone through whatspp and telegram.
+        </li> <li>  For admit card and result update please join our <a href="https://chat.whatsapp.com/KXtZbW9QeiG5HopA0Z9D4Q"> WhatsApp </a> and <a href="https://t.me/sarkaricapsule">  Telegram Group </a>.
+    </li>
+        </p>
+    
+    </div>
+    </div>
+  </div>
+ 
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h1 itemprop="name">  How do you apply for a Sarkari job? </h1>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+     <ol style="text-align:left;">
+          
+        <li> Search for Sarkari Job Vacancies on Sarkari Capsule </li>
+        <li> Check the eligibility criteria on Sarkari Capsule for the respective sarkari Job  </li>
+        <li> If you are eligible for that sarkari job, then apply through the official link on Sarkari Capsule
+        </li> <li>  You can Download the admit card by clicking the link on sarkari capsule for that particular sarkari job.
+        </li> <li> For updates of different Sarkari Jobs also on your Phone join our whatsapp and telegram group.
+       </li>
+        </ol>
+    
+    </div>
+    </div>
+  </div>
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h1 itemprop="name">  Which Sarkari job is best after 12th? </h1>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+     <p style="text-align:left;">
+           
+        It depends on individuals’ interest. The sarkari job is best for a individual if and only if he/she likes the work they would be doing beside of the perks given in sarkari jobs. There are many such sarkari jobs of group D which take employees of 12th pass. The interested ones can apply for the job. For help one can visit sarkaricapsule.com for sarkari job vacancies and eligibility criteria.
+        </p>
+    
+    </div>
+    </div>
+  </div>
+ 
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h1 itemprop="name">  What are the exams to get sarkari jobs ?</h1>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text">
+     <p style="text-align:left;">
+           
+        Every department has their own recruitment examination or selection procedure. Some of these are SBI PO Examination, IBPS SO Examination, IBPS PO Examination, RBI Grade B, SBI & IBPS Clerk Examination, Indian Railways Examination, UPSC Civil Services Examination, UPPCS examination, State Level Hospital nurse’s recruitment examination etc. </p>
+    
+    </div>
+    </div>
+  </div>
+ 
+</div>
+</div>
+    
+</div>
+
+{% endblock content %}

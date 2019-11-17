@@ -1,0 +1,476 @@
+{% extends 'events/base.html' %}
+{% load static %}
+
+{% block pagename %} Sarkari Capsule : {{ pagename }} {% endblock %}
+
+{% block title %}
+
+{% if list_type == 'job' %}
+{{ page_title }} | Sarkari Result 2019 | Important Dates, Application Fees, How To Apply, Eligibility, Vacancy Details 
+{% endif %}
+
+{% if list_type == 'result' %}
+{{ page_title }} | Result Announced, Live update  | Sarkari Result 2019  
+{% endif %}
+
+{% if list_type == 'admitcard' %}
+{{ page_title }} | Admit card released, Download Admit Card  | Sarkari Result 2019  
+{% endif %}
+
+{% endblock%}
+<!--  Block Head -->
+
+<!-- new change -->
+
+{% block extrahead %}
+<link rel="canonical"
+  href="{{request.scheme}}://{{request.META.HTTP_HOST}}{% url 'events:detail' listtype=list_type pk=event.pk slug=event.slug %}">
+
+  
+{% if event.image %}
+  <meta property="og:image"
+    content="{{request.scheme}}://{{request.META.HTTP_HOST}}{{ event.image.url }}" />
+{% else %}
+  <meta property="og:image"
+    content="{{request.scheme}}://{{request.META.HTTP_HOST}}{% static 'staticfiles/images/logo.png' %}" />
+{% endif %}
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta itemprop="inLanguage" content="en_IN" />
+<meta itemprop="name" content="Sarkari Capsule">
+
+<meta property="og:locale" content="en_IN" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ page_title }}" />
+<meta property="og:description" content="{{ event.description|safe|striptags|force_escape }}" />
+<meta property="og:url"
+  content="{{request.scheme}}://{{request.META.HTTP_HOST}}{% url 'events:detail' listtype=list_type pk=event.pk slug=event.slug %}" />
+<meta property="og:site_name" content="Sarkari Capsule" />
+
+<meta name="keywords"
+  content="Sarkari Capsule, Sarkari Result, Sarkari Result 2019, Sarkari Exams, Sarkari Jobs, Sarkari Naukari, {{ event.meta_keywords}}, {{ meta_key|default:'sarkari' }}">
+<meta name="description" content="{{ event.description|safe|striptags|force_escape }}" />
+<meta property="article:published_time" content="{{ event.created_at|date }}" />
+    <meta property="article:modified_time" content="{{ event.modfied_at|date }}" />
+    <meta itemprop="author" content="Sarkari Capsule">
+
+    <meta itemprop="mainEntityOfPage" content="{{request.scheme}}://{{request.META.HTTP_HOST}}{% url 'events:detail' listtype=list_type pk=event.pk slug=event.slug %}"  />
+    <meta itemprop="url"  content="{{request.scheme}}://{{request.META.HTTP_HOST}}{% url 'events:detail' listtype=list_type pk=event.pk slug=event.slug %}"  />
+    <meta itemprop="description"    content="{{ event.description|safe|striptags|force_escape }}" />
+   
+    <meta itemprop="keywords" content="Sarkari Capsule, Sarkari Result, Sarkari Result 2019, Sarkari Exams, Sarkari Jobs, Sarkari Naukari, {{ event.meta_keywords}}, {{ meta_key|default:'sarkari' }}">
+    <meta itemprop="datePublished" content="{{ event.created_at|date }}" />
+    <meta itemprop="dateModified" content="{{ event.modfied_at|date }}" />
+    <meta itemprop="articleSection" content="News" />   
+   
+<meta property="article:publisher" content="https://www.facebook.com/sarkaricapsule" />
+<meta property="fb:admins" content="www.facebook.com/sarkaricapsule" />
+<meta property="fb:pages" content="2285513015019764" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="{{ event.description|safe|striptags|force_escape }}" />
+<meta name="twitter:title" content="{{ event.title }}" />
+<meta name="twitter:site" content="@SarkariCapsule" />
+<meta name="twitter:domain" content="SarkariCapsule" />
+<meta name="twitter:creator" content="@SarkariCapsule" />
+{% if event.image %}
+<meta name="twitter:image" content="{{request.scheme}}://{{request.META.HTTP_HOST}}{{ event.image.url }}" />
+{% else %}
+<meta name="twitter:image"
+    content="{{request.scheme}}://{{request.META.HTTP_HOST}}{% static 'staticfiles/images/logo.png' %}" />
+{% endif %}
+<style>
+  iframe {
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+  }
+</style>
+{% endblock extrahead %}
+
+
+<!-- Block Content -->
+
+
+
+{% block content %}
+<div class="entry-head">
+  <p> सरकारी नौकरी की जानकारी सबसे पहले पाने के लिए हमारा टेलीग्राम चैनल ज्वाइन करें <a href="https://t.me/sarkaricapsule "> <button style="background-color:#f44336; color:white; padding:7px; font-weight:bold"> Click here to Join</button> </a></p>
+  <div class="org">
+      <h2> <i class="fas fa-university"></i> {{ event.organization.name }} </h2>
+  </div>
+  <h1> {{ event.title }}{% if list_type == 'admitcard' %}
+  | Download Admit Card 
+  
+    {% endif %} 
+    {% if list_type == 'result' %}
+    | Result Announced
+    
+    {% endif %} </h1>
+    
+  {% if event.description %}
+    <div style="overflow: hidden">
+      {{ event.description|safe }}
+    </div>
+  {% endif %}
+</div>
+
+{% if event.importantUpdates.all|length != 0 %}
+<div class="notifi">
+  <div class="notifi-head">
+      <i class="fas fa-exclamation-circle" padding></i> Important Update
+  </div>
+  <div class="notifi-content">
+      {% for i in event.importantUpdates.all %}
+      <ul>
+          <li><strong>{{i.title}}:</strong> {{ i.description|urlizetrunc:30 }}</li>
+      </ul>
+      {% endfor %}
+  </div>
+</div>
+{% endif %}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- square ads -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9890029842822433"
+     data-ad-slot="9646950220"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<div class="details">
+  <div class="box1">
+      <h4 class="label">Important Dates</h4>
+      {% for impdate in event.importantDates.all %}
+      <p> <strong>{{ impdate.title }}:</strong> {{ impdate.date|date:"j M, Y" }}</p>
+      {% endfor %}
+  </div>
+  <div class="box2">
+      <h4 class="label">Application Fee</h4>
+      {% if event.fees.all|length != 0 %}
+      {% for fee in event.fees.all %}
+      <p> <strong>{{ fee.title }}:</strong> {{ fee.amount|floatformat:"0" }} </p>
+      {% endfor %}
+      {% else %}
+      <p> Not Available </p>
+      {% endif %}
+      {% if event.payment_method %}
+      <h4 class="label">Payment Mode</h4>
+      <p>{{ event.payment_method|striptags }}</p>
+      {% endif %}
+  </div>
+  <span class="box3">
+      {% if event.eligibilities.all %}
+      <h4 class="label">Eligibility</h4>
+      {% for elig in event.eligibilities.all %}
+        <p><strong>{{ elig.title}}:</strong> {{ elig.criteria }}
+            {% if elig.desc %}
+            ({{ elig.desc }})
+            {% endif %}
+        </p>
+      {% endfor %}
+      {% endif %}
+      {% if event.vacancy_details %}
+        <h4 class="label">Vacancy Details</h4>
+        <p><div style="overflow-x: auto">{{ event.vacancy_details|safe }}</div></p>
+      {% endif %}
+  </span>
+  <div class="box4">
+    {% if event.syllabuses.all|length != 0 %}
+      <h4 class="label">Syllabus</h4>
+      {% for syllabus in event.syllabuses.all %}
+        {% if syllabus.files %}
+        <p> <a href="{{ syllabus.file.url }}"> {{syllabus.title }} </a></p>
+        {% elif syllabus.link %}
+        <p> <a href="{{ syllabus.link }}"> {{syllabus.title }} </a></p>
+        {% else %}
+        <p> <a href="#"> {{syllabus.title }} </a></p>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    {% if event.admitCards.all|length != 0 %}
+      <h4 class="label">Admit Cards</h4>
+      {% for admitcard in event.admitCards.all %}
+        {% if admitcard.files %}
+        <p> <a href="{{ admitcard.file.url }}"> {{admitcard.title }} </a></p>
+        {% elif admitcard.link %}
+        <p> <a href="{{ admitcard.link }}"> {{admitcard.title }} </a></p>
+        {% else %}
+        <p> <a href="#"> {{admitcard.title }} </a></p>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- square ads -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-9890029842822433"
+       data-ad-slot="9646950220"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  <div class="box5">
+    {% if event.importantUpdates.all|length != 0 %}
+      <h4 class="label">Important Updates</h4>
+      {% for update in event.importantUpdates.all %}
+        <p><strong>{{ update.title }}:</strong> {{ update.description|urlizetrunc:30 }}</p>
+      {% endfor %}
+    {% endif %}
+    {% if event.results.all|length != 0 %}
+      <h4 class="label">Results</h4>
+      {% for result in event.results.all %}
+        {% if result.files %}
+        <p> <a href="{{ result.file.url }}"> {{result.title }} </a></p>
+        {% elif result.link %}
+        <p> <a href="{{ result.link }}"> {{result.title }} </a></p>
+        {% else %}
+        <p> <a href="#"> {{result.title }} </a></p>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+  <div class="box6">
+    {% if event.howTos.all|length != 0 %}
+      <h4 class="label">How To</h4>
+      {% for ht in event.howTos.all %}
+        <p><strong>&DoubleLongRightArrow; {{ ht.title }}</strong>
+          <p>{{ ht.description|safe }}</p>
+        </p>
+      {% endfor %}
+    {% endif %}
+  </div>
+  <div class="box6">
+    {% if event.importantLinks.all|length != 0 %}
+      <h4 class="label">Important links</h4>
+      {% for link in event.importantLinks.all %}
+        <ul>
+          <li>
+            <strong>{{ link.title }}: </strong><a href="{{link.link}} ">Click Here</a>
+          </li>
+        </ul>
+      {% endfor %}
+    {% endif %}
+  </div>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- square ads -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9890029842822433"
+     data-ad-slot="9646950220"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  <div class="box6">
+    {% if event.faqs.all|length != 0 %}
+      <h4 class="label">FAQs</h4>
+      <ul>
+        <li>
+          {% for faq in event.faqs.all %}
+              <p><strong>Question: {{ faq.question_title}}</strong></p>
+            {% if faq.question_description %}<p>{{ faq.question_description}}</p>{% endif %}
+              <p><strong style="color: blue">Answer: {{ faq.answer_title}}</strong></p>
+            {% if faq.answer_detail %}<p>{{ faq.answer_detail}}</p>{% endif %}
+          {% endfor %}
+        </li>
+      </ul>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock content %}
+
+
+<!-- Block Schema -->
+
+
+{% block extraschema %}
+<script type='application/ld+json'>
+  {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://www.sarkaricapsule.com/#website",
+      "url": "https://www.sarkaricapsule.com",
+      "name": "Sarkari Capsule",
+      "alternateName": "sarkaricapsule"
+
+  }
+</script> 
+
+{% if list_type == 'job' %}
+<!-- Job Schema -->
+<script type = "application/ld+json" > 
+    {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": " "
+        },
+        "headline": "{{ event.title }}",
+        "image": {
+            "@type": "ImageObject",
+            "url": "{{request.scheme}}://{{request.META.HTTP_HOST}}{% static 'staticfiles/images/logo.png' %}",
+            "height": 200,
+            "width": 47
+        },
+        "datePublished": "{{ event.created_at|date }}",
+        "dateModified": "{{ event.modified_at|date }}",
+        "author": {
+            "@type": "Person",
+            "name": "Sarkari Capsule"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Sarkari Capsule",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{request.scheme}}://{{request.META.HTTP_HOST}}{% static 'staticfiles/images/logo.png' %}",
+                "width": 200,
+                "height": 47
+            }
+        },
+        "description": "{{ event.description }}",
+        "keywords": "{{ event.meta_keywords }}, Sarkari Capsule, Sarkari Result, Sarkari Result 2019, Sarkari Exams, Sarkari Jobs, Sarkari Naukari",
+        "articleSection": "Govt Jobs",
+        "articleBody": "
+          {{ event.organization.name }}
+
+          {{ event.title }}
+
+          {% if event.description %}
+          {{ event.description|safe|striptags|force_escape }}
+          {% endif %}
+
+          Important Update
+          {% for i in event.importantUpdates.all %}
+          {{i.title}}: {{ i.description }}
+          {% endfor %}
+
+          Important Dates
+          {% for impdate in event.importantDates.all %}
+          {{ impdate.title }}: {{ impdate.date|date:"j M, Y" }}
+          {% endfor %}
+
+          Application Fee
+          {% if event.fees.all|length != 0 %}
+          {% for fee in event.fees.all %}
+          {{ fee.title }}: {{ fee.amount|floatformat:"0" }}
+          {% endfor %}
+          {% else %}
+          Not Available
+          {% endif %}
+          Payment Mode
+          {{ event.payment_method }}
+
+          Eligibility
+          {% for elig in event.eligibilities.all %}
+          {{ elig.title}}: {{ elig.criteria }}
+          {% if elig.desc %}
+          ({{ elig.desc }})
+          {% endif %}
+          {% endfor %}
+
+          Vacancy Details
+          {{ event.vacancy_details|safe|striptags|force_escape }}
+
+          Syllabus
+          {% if event.syllabuses.all|length != 0 %}
+          {% for syllabus in event.syllabuses.all %}
+          {% if syllabus.files %}
+          {{syllabus.title }}
+          {% elif syllabus.link %}
+          {{syllabus.title }}
+          {% else %}
+          {{syllabus.title }}
+          {% endif %}
+          {% endfor %}
+          {% else %}
+          No Syllabus Available.
+          {% endif %}
+
+          Important Updates
+          {% if event.importantUpdates.all|length != 0 %}
+          {% for update in event.importantUpdates.all %}
+          {{ update.title }}: {{ update.description }}
+          {% endfor %}
+          {% else %}
+          No Updates
+          {% endif %}
+
+          Important links
+          {% if event.importantLinks.all|length != 0 %}
+          {% for link in event.importantLinks.all %}
+          {{ link.title }}: Click Here
+          {% endfor %}
+          {% else %}
+          No Links
+          {% endif %} "
+        }
+    </script>
+
+<script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    "@type": "JobPosting",
+    "title": "{{ event.title }}",
+    "datePosted": "{{ event.created_at|date }}",
+    "description": "
+        {{ event.description|safe|striptags|force_escape }}
+  ",
+  "educationRequirements": "
+  {% for elig in event.eligibilities.all %}
+  {{ elig.title}}: {{ elig.criteria }}
+      {% if elig.desc %}
+      ({{ elig.desc }})
+      {% endif %}
+      
+  {% endfor %}
+  ",
+     "employmentType": "Permanent",
+      "validThrough": "{{ event.end_date|date }}",
+      "baseSalary" :
+          {
+            "@type": "MonetaryAmount",
+            "currency" : "INR",
+            "value":
+            {	
+              "@type": "QuantitativeValue",
+              "value": "NA",
+              "unitText": "YEARLY"
+            }
+          }
+      ,"hiringOrganization" :
+    {	
+      "@type": "Organization",
+      "name" : "{{ event.organization.name }}",
+      "sameAs" : "
+        {{ event.organization.website }}
+      ",
+      "logo": "NA"
+    }
+              ,"jobLocation" :
+      {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "{{ event.organization.location.get_location }}",
+      "addressRegion": "{{ event.organization.location.get_partial_location }}",
+      "addressCountry": "IN",
+      "postalCode":"{{ event.organization.location.pincode }}",
+      "streetAddress":"{{ event.organization.location.street }}"
+    }
+  }
+  }
+</script>
+
+{% endif %}
+
+{% endblock extraschema %}

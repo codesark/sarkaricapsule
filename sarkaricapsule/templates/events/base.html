@@ -1,0 +1,162 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147415566-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-147415566-1');
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-9890029842822433",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="{% static "staticfiles/images/logo.png" %}" type="image/x-icon">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-9890029842822433",
+            enable_page_level_ads: true
+       });
+  </script>
+
+  <title>{% block title %}{{ title|default:"Sarkari Result 2019" }}, Sarkari Naukri 2019, Sarkari Job, SarkariResult.com|Sarkari Capsule{% endblock %}</title>
+  {% block extrameta %}{% endblock %}
+  {% block responsive %}
+
+  <meta property="fb:pages" content="2285513015019764">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static "staticfiles/css/main.css" crossorigin="anonymous" %}">
+  {% endblock %}
+
+  <!-- meta -->
+
+  {% block extrahead %}{% endblock %}
+
+  <!-- schema -->
+  <script type='application/ld+json'>
+    {
+        "@context": "http://www.schema.org",
+        "@type": "Organization",
+        "name": "Sarkari Capsule",
+        "url": "https://sarkaricapsule.com/",
+        "sameAs": [
+            "https://sarkaricapsule.business.site/",
+            "http://picdeer.com/sarkaricapsule",
+            "https://www.instagram.com/sarkaricapsule/",
+            "https://www.instagram.com/sarkaricapsuledotcom/",
+            "https://www.linkdin.com/company/sarkaricapsule",
+            "https://www.youtube.com/user/sarkaricapsule",
+            "https://www.twitter.com/sarkaricapsule",
+            "https://www.facebook.com/sarkaricapsule"
+        ],
+        "logo": "{{request.scheme}}://{{request.META.HTTP_HOST}}{% static 'staticfiles/images/logo.png' %}",
+        "image": "{{request.scheme}}://{{request.META.HTTP_HOST}}{% static 'staticfiles/images/splash.png' %}",
+        "description": "Sarkari Capsule Provides information of all the Sarkari Results, Sarkari Jobs, Sarkari Exams, Admit Cards, Answer Keys . Sarkari Capsule Provides all the latest information of Railway, Bank, SSC, Army, Navy, Police, UPPSC, UPSSSC and more Sarkari Jobs alert at one place.", 
+       
+
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "House No. 71 Near HHH",
+            "postOfficeBoxNumber": "Hira Nagar",
+            "addressLocality": "Hamirpur",
+            "addressRegion": "Himachal Pradesh",
+            "postalCode": "177001",
+            "addressCountry": "India"
+        },
+
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+918219044794",
+            "contactType": "customer service",
+            "availableLanguage": [
+            "English",
+            "Hindi"
+          ],
+          "areaServed": "IND"
+        }
+    }
+  </script>
+  {% block extraschema %}{% endblock %}
+</head>
+
+<body>
+  <div class="container">
+    <header class="header" id="header">
+      <h1>{% block pagename %} Sarkari Capsule {% endblock %}</h1>
+      {% block header %}{% endblock %}
+    </header>
+
+    <nav class="nav" id="nav">
+      <ul>
+        <li><a href="{% url 'events:home' %}"><i class="fas fa-home"></i> Home </a></li>
+        <li><a href="{% url 'events:list' listtype='job' %}"><i class="fas fa-briefcase"></i> Latest Jobs </a>
+        </li>
+        <li><a href="{% url 'events:list' listtype='scholarship' %}"><i class="fas fa-rupee-sign"></i>
+            Scholarships </a></li>
+        <li><a href="{% url 'events:list' listtype='admission' %}"><i class="fas fa-user-graduate"></i> Admissions
+          </a></li>
+        <li><a href="{% url 'events:list' listtype='admitcard' %}"><i class="fas fa-scroll"></i> Admit Cards </a>
+        </li>
+        <li><a href="{% url 'events:list' listtype='result' %}"><i class="fas fa-poll"></i> Results </a></li>
+        <li><a href="{% url 'events:list' listtype='syllabus' %}"><i class="fas fa-layer-group"></i> Syllabus </a>
+        </li>
+        <li><a href="{% url 'events:list' listtype='answerkey' %}"><i class="fas fa-key"></i> Answer Keys </a>
+        <li><a href="{% url 'events:list' listtype='importantupdate' %}"><i class="fas fa-key"></i> Important Updates </a>
+        </li>
+        <!-- <li><span><i class="fas fa-users"></i> About <i class="fa fa-angle-down"></i></span>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Give Feedback</a></li>
+          <li><a href="#">Leave us a message</a></li>
+        </ul>
+      </li> -->
+      </ul>
+    </nav>
+
+    <div class="content">
+      <a href="https://chat.whatsapp.com/KXtZbW9QeiG5HopA0Z9D4Q" class="whatsapp-banner" style="display: block; max-width: 1000px; margin: 0 auto"><img style="width: 100%" src="{% static "staticfiles/images/whatapp.jpg" %}" alt="Join Whatsapp"></a>
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    <div class="footer">
+     <h2> <p style="color:azure;font-size:15px">
+         Sarkari Capsule Provides information of all the Sarkari Results,Sarkari Jobs, Sarkari Exams, Admit Cards, Answer Keys . Sarkari Capsule Provides all the latest information of Railway, Bank, SSC, Army, Navy, Police, UPPSC, UPSSSC and more Sarkari Jobs alert at one place. 
+       
+     </p> </h2>
+      Copyright &copy; 2019 SarkariCapsule - All Rights Reserved. Contact: webmaster@sarkaricapsule.com
+    </div>
+  </div>
+  <script src="https://apis.google.com/js/platform.js"></script>
+  <div id="yt_subbutton" style="position:absolute;bottom:20px;right:20px;z-index:10" class="g-ytsubscribe"
+    data-channelid="UCJPlrQdj717konSMDqbW9nA" data-layout="full" data-count="hidden"></div>
+  <script>
+    document.onreadystatechange = function () {
+      setInterval(function () {
+        document.querySelector('#___ytsubscribe_0').setAttribute('style', 'text-indent: 0px; margin: 0px; padding: 0px; background: transparent none repeat scroll 0% 0%; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 141px; height: 48px;position: fixed;bottom:0;right:0;background:#fff');
+      }, 2000)
+    }
+  </script>
+  {% block scripts %}{% endblock %}
+
+<script type="text/javascript">var subscribersSiteId='8039c324-989a-49e2-b88f-0560e329d3af';</script><script type="text/javascript" src="https://cdn.subscribers.com/assets/subscribers.js"></script>
+
+</body>
+
+</html>

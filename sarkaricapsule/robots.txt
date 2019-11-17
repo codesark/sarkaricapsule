@@ -1,0 +1,3 @@
+Sitemap: https://sarkaricapsule.com/sitemap.xml
+User-agent: *
+Disallow: /admindash
