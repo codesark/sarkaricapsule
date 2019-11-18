@@ -48,6 +48,8 @@ class Event(models.Model):
   min_education_qualification = models.CharField(max_length=5000, blank=True, null=True)
   vacancy_details = models.TextField(blank=True, null=True)
   payment_method = models.TextField(blank=True, null=True)
+
+  create_news = models.BooleanField("Create News??", default=False, blank=True, null=True)
   
   class Meta:
     ordering = ('-modified_at',)

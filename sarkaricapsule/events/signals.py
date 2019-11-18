@@ -7,6 +7,7 @@ from django.dispatch import receiver
 from django.urls import reverse
 from django.utils.text import slugify
 from oauth2client.service_account import ServiceAccountCredentials
+from django.conf import settings
 
 from core.utils import generate_random_string
 from .models import Event
@@ -14,7 +15,7 @@ from .models import Event
 @receiver(post_save, sender=Event)
 def send_to_google_indexing_api(sender, instance, created, **kwargs):
   try:
-    if instance.is_active and instance.event_type.name == "Job":
+    if instance.is_active and instance.event_type.name == "Job" and not settings.DEBUG:
       content = json.dumps({
         'url': "https://" + str(Site.objects.get_current()) + instance.get_absolute_url(),
         'type': "URL_UPDATED"

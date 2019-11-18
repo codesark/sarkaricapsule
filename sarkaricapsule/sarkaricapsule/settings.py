@@ -30,7 +30,8 @@ INSTALLED_APPS = [
 
     'locations',
     'organizations',
-    'events'
+    'events',
+    'news'
 ]
 
 MIDDLEWARE = [
