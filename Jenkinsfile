@@ -3,12 +3,20 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo 'Building Project'
+        echo 'Started Build'
+        echo '...'
+        echo 'Build Successful'
       }
     }
-
+    stage('Test') {
+      steps {
+        echo 'Started Testing'
+        echo '...'
+        echo 'Test Successfull'
+      }
+    }
   }
   environment {
-    PGHOST = ''
+    PGHOST = 'postgres'
   }
 }
