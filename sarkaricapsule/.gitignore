@@ -106,8 +106,3 @@ media/
 *.pyc
 *.db
 *.pid
-
-
-# media files should be ignored
-**/media/**
-!media
