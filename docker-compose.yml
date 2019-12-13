@@ -1,0 +1,22 @@
+version: "3"
+services: 
+    postgres:
+        image: postgres
+        volumes:
+            - ./postgres_data:/var/lib/postgresql/data:z
+        environment:
+            - POSTGRES_USER=scap_user
+            - POSTGRES_PASSWORD=scap_pass
+            - POSTGRES_DB=scap
+    django:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./media:/app/media
+        depends_on: 
+            - postgres
+        env_file:
+            - ./.env.dev

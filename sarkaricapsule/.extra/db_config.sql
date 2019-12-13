@@ -1,10 +1,10 @@
-CREATE DATABASE scap_rev2;
+CREATE DATABASE sarkaricapsule;
 
-CREATE USER webmaster WITH PASSWORD 'dbpass001';
+CREATE USER sarkaricapsule_user WITH PASSWORD 'dbpass001';
 
-ALTER ROLE webmaster SET client_encoding TO 'utf8';
-ALTER ROLE webmaster SET default_transaction_isolation TO 'read committed';
-ALTER ROLE webmaster SET timezone TO 'UTC';
+ALTER ROLE sarkaricapsule_user SET client_encoding TO 'utf8';
+ALTER ROLE sarkaricapsule_user SET default_transaction_isolation TO 'read committed';
+ALTER ROLE sarkaricapsule_user SET timezone TO 'UTC';
 
-GRANT ALL PRIVILEGES ON DATABASE scap_rev2 TO webmaster;
+GRANT ALL PRIVILEGES ON DATABASE sarkaricapsule TO sarkaricapsule_user;
 

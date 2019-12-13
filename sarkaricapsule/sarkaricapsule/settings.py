@@ -1,18 +1,22 @@
-from local_settings import *
 
-BASE_DIR = BASE_DIR
+import os
 
-SECRET_KEY = '_xg(&zd1f1!v!0%kqzb)ffxwvb5^swbanmztsnn#px6x&wm)f1'
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-TEMPLATE_DIR = TEMPLATE_DIR
-STATIC_DIR = STATIC_DIR
-MEDIA_DIR = MEDIA_DIR
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '_xg(&zd1f1!v!0%kqzb)ffxwvb5^swbanmztsnn#px6x&wm)f1')
 
-DEBUG = DEBUG
+TEMPLATE_DIR = os.environ.get('TEMPLATE_DIR', os.path.join(BASE_DIR, 'templates'))
+STATIC_DIR = os.environ.get('STATIC_DIR', os.path.join(BASE_DIR, 'static'))
+
+MEDIA_DIR = os.environ.get('MEDIA_DIR', os.path.join(BASE_DIR, 'media'))
+
+DEBUG = int(os.environ.get('DEBUG', 1))
+
+PRODUCTION = int(os.environ.get('PRODUCTION', 0))
 
 SITE_ID = 1
 
-ALLOWED_HOSTS = ALLOWED_HOSTS
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -27,6 +31,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'django_summernote',
     'graphene_django',
+    # 'storages',
 
     'locations',
     'organizations',
@@ -68,8 +73,27 @@ WSGI_APPLICATION = 'sarkaricapsule.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = DATABASES
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.environ.get('PG_DATABASE', 'sarkaricapsule'),
+#         'USER': os.environ.get('PG_USER', 'sarkaricapsule_user'),
+#         'PASSWORD': os.environ.get('PG_PASSWORD', 'dbpass001'),
+#         'HOST': os.environ.get('PG_HOST', '127.0.0.1'),
+#         'PORT': int(os.environ.get('PG_PORT', '5432')),
+#     }
+# }
 
+DATABASES = {
+    "default": {
+        "ENGINE": 'django.db.backends.postgresql_psycopg2',
+        "NAME": os.environ.get("PG_DATABASE", 'sarkaricapsule'),
+        "USER": os.environ.get("PG_USER", 'sarkaricapsule_user'),
+        "PASSWORD": os.environ.get("PG_PASSWORD", 'dbpass001'),
+        "HOST": os.environ.get("PG_HOST", '127.0.0.1'),
+        "PORT": os.environ.get("PG_PORT", '5432'),
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -135,3 +159,23 @@ SUMMERNOTE_CONFIG = {
 GRAPHENE = {
     'SCHEMA': 'sarkaricapsule.schema.schema'
 }
+
+# AWS_DEFAULT_ACL = None
+# AWS_S3_SIGNATURE_VERSION = 's3v4'
+# AWS_S3_CUSTOM_DOMAIN = 'static.sarkaricapsule.com'
+# AWS_ACCESS_KEY_ID = 'RXRUYCPHL3VV366WKD7Y'
+# AWS_SECRET_ACCESS_KEY = '7ZVCOSVTpUWk5UAh4wEFfXCnZrFmIcmRIn9D66KU1Xc'
+# AWS_STORAGE_BUCKET_NAME = 'sarkaricapsule'
+# AWS_S3_ENDPOINT_URL = 'https://betabrains.sgp1.digitaloceanspaces.com'
+# AWS_S3_OBJECT_PARAMETERS = {
+#     'CacheControl': 'max-age=86400',
+# }
+# AWS_LOCATION = 'static'
+
+# STATICFILES_DIRS = [
+#     STATIC_DIR,
+# ]
+# # AWS_S3_ENDPOINT_URL='static.sarkaricapsule.com'
+# STATIC_URL = '%s/%s/' % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
+# # STATIC_URL = '%s/%s/' % ('https://static.sarkaricapsule.com', AWS_LOCATION)
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

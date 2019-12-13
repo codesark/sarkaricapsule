@@ -1,0 +1,50 @@
+version: "3"
+services: 
+    postgres:
+        restart: always
+        image: postgres
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+        environment:
+            - POSTGRES_USER=${PG_USER}
+            - POSTGRES_PASSWORD=${PG_PASSWORD}
+            - POSTGRES_DB=${PG_DATABASE}
+    django:
+        restart: always
+        build:
+            context: .
+            dockerfile: Dockerfile
+        expose:
+            - "8000"
+        volumes:
+            - shared_media:/app/media
+            - shared_static:/app/static
+        depends_on: 
+            - postgres
+        environment: 
+            - DEBUG=${DEBUG}
+            
+            - PG_DATABASE=${PG_DATABASE}
+            - PG_USER=${PG_USER}
+            - PG_PASSWORD=${PG_PASSWORD}
+            - PG_HOST=postgres
+            - PG_PORT=5432
+
+            - MEDIA_DIR=/app/media
+            - STATIC_DIR=/app/static
+    nginx:
+        restart: always
+        build:
+            context: ./nginx
+            dockerfile: Dockerfile
+        ports:
+            - "8001:80"
+        volumes: 
+            - shared_media:/app/media
+            - shared_static:/app/static
+        depends_on: 
+            - django
+volumes: 
+    postgres_data:
+    shared_media:
+    shared_static:
