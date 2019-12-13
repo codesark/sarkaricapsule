@@ -1,0 +1,20 @@
+FROM python
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY ./sarkaricapsule/ ./
+
+# add env variables here
+ENV PYTHONUNBUFFERED 1
+ENV DEBUG 1
+ENV PG_HOST 172.17.0.1
+ENV PG_PORT 5432
+ENV PG_DATABASE sarkaricapsule
+ENV PG_USER sarkaricapsule_user
+ENV PG_PASSWORD dbpass001
+
+
+CMD ["sh", "-c", "python manage.py runserver"]
+
