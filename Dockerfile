@@ -15,7 +15,7 @@ RUN pip install -r requirements.txt
 COPY ./sarkaricapsule .
 COPY scap_data.json .
 
-# RUN chcon -Rt svirt_sandbox_file_t home/savinay/workspace/web/sarkaricapsule/postgres_data
 
-
-CMD ["sh", "-c", "python manage.py runserver 0.0.0.0:8000"]
+CMD ["sh", "-c", "gunicorn sarkaricapsule.wsgi \
+                    --bind 0.0.0.0:8000 \
+                    --workers 3"]

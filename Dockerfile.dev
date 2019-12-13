@@ -17,4 +17,3 @@ ENV PG_PASSWORD dbpass001
 
 
 CMD ["sh", "-c", "python manage.py runserver"]
-

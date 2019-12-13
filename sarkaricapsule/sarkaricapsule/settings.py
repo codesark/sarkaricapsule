@@ -3,7 +3,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = os.environ.get('SECRET_KEY', '_xg(&zd1f1!v!0%kqzb)ffxwvb5^swbanmztsnn#px6x&wm)f1')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '_xg(&zd1f1!v!0%kqzb)ffxwvb5^swbanmztsnn#px6x&wm)f1')
 
 TEMPLATE_DIR = os.environ.get('TEMPLATE_DIR', os.path.join(BASE_DIR, 'templates'))
 STATIC_DIR = os.environ.get('STATIC_DIR', os.path.join(BASE_DIR, 'static'))
@@ -12,9 +12,11 @@ MEDIA_DIR = os.environ.get('MEDIA_DIR', os.path.join(BASE_DIR, 'media'))
 
 DEBUG = int(os.environ.get('DEBUG', 1))
 
+PRODUCTION = int(os.environ.get('PRODUCTION', 0))
+
 SITE_ID = 1
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(" ")
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -84,12 +86,12 @@ WSGI_APPLICATION = 'sarkaricapsule.wsgi.application'
 
 DATABASES = {
     "default": {
-        "ENGINE": os.environ.get("SQL_ENGINE", 'django.db.backends.postgresql_psycopg2'),
-        "NAME": os.environ.get("SQL_DATABASE", 'sarkaricapsule'),
-        "USER": os.environ.get("SQL_USER", 'sarkaricapsule_user'),
-        "PASSWORD": os.environ.get("SQL_PASSWORD", 'dbpass001'),
-        "HOST": os.environ.get("SQL_HOST", '127.0.0.1'),
-        "PORT": os.environ.get("SQL_PORT", '5432'),
+        "ENGINE": 'django.db.backends.postgresql_psycopg2',
+        "NAME": os.environ.get("PG_DATABASE", 'sarkaricapsule'),
+        "USER": os.environ.get("PG_USER", 'sarkaricapsule_user'),
+        "PASSWORD": os.environ.get("PG_PASSWORD", 'dbpass001'),
+        "HOST": os.environ.get("PG_HOST", '127.0.0.1'),
+        "PORT": os.environ.get("PG_PORT", '5432'),
     }
 }
 
