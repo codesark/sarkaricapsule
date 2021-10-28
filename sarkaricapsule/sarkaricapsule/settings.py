@@ -163,10 +163,10 @@ GRAPHENE = {
 # AWS_DEFAULT_ACL = None
 # AWS_S3_SIGNATURE_VERSION = 's3v4'
 # AWS_S3_CUSTOM_DOMAIN = 'static.sarkaricapsule.com'
-# AWS_ACCESS_KEY_ID = 'RXRUYCPHL3VV366WKD7Y'
-# AWS_SECRET_ACCESS_KEY = '7ZVCOSVTpUWk5UAh4wEFfXCnZrFmIcmRIn9D66KU1Xc'
+# AWS_ACCESS_KEY_ID = ''
+# AWS_SECRET_ACCESS_KEY = ''
 # AWS_STORAGE_BUCKET_NAME = 'sarkaricapsule'
-# AWS_S3_ENDPOINT_URL = 'https://betabrains.sgp1.digitaloceanspaces.com'
+# AWS_S3_ENDPOINT_URL = 'https://bFGDGDFG.sgp1.digitaloceanspaces.com'
 # AWS_S3_OBJECT_PARAMETERS = {
 #     'CacheControl': 'max-age=86400',
 # }
